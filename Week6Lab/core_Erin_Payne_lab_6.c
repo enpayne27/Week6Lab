@@ -46,16 +46,16 @@ return total;
 //     You can chain as many "->next" as you want as long as you are checking for NULL
 //         i.e. list->next->next is valid as long as nothing is NULL
 int remove_last(LinkedList * list) {
-    LinkedList * cur = list;
     if(list == NULL){return FALSE;}
-    else if(list->next == NULL && list->next->next == NULL){
+    LinkedList * cur = list;
+    if(list->next == NULL && list->next->next == NULL){
 	return FALSE;
     }
     else{
 	while(list->next->next != NULL){
-	     cur = cur->next;
+	     list = list->next;
 	}
-	cur->next = NULL;
+	list->next = NULL;
 	return TRUE;
     }
 }
